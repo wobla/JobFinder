@@ -1,0 +1,16 @@
+{
+  "name": "workspace",
+  "description": "Job Finding App",
+  "main": "index.js",
+  "authors": [
+    "Romanas Rodevicius"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}
