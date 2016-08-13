@@ -1,17 +1,21 @@
 var mongoose = require("mongoose");
 var Promise = require("bluebird");
-
-var Job = mongoose.model("Job");
+require('./models/Job');
+var Job = mongoose.model('Job');
 
 var findJobs = function(query){
     return Promise.cast(Job.find(query).exec());
 };
 
+var createJob = Promise.promisify(Job.create, {context:Job});
+
+// Exports
+
 exports.findJobs = findJobs;
 
 exports.connectDB = Promise.promisify(mongoose.connect, {context:mongoose});
 
-var createJob = Promise.promisify(Job.create, {context:Job});
+exports.saveJob = createJob;
 
 exports.seedJobs = function(){
         return findJobs({}).then(function(collection){
